@@ -32,5 +32,8 @@ func initDB(dataSourceName string) {
 }
 
 func closeDB() {
-    db.Close()
+    if err := db.Close(); err != nil {
+        log.Println("Error closing database:", err)
+    }
 }
+
